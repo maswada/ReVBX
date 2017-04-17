@@ -26,6 +26,8 @@
 		1A59F7F91E9B77CE000CE015 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A59F7F81E9B77CE000CE015 /* WebViewController.swift */; };
 		1AD4C3531E9F640D00F91B35 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4C3511E9F640D00F91B35 /* FavoriteTableViewCell.swift */; };
 		1AD4C3541E9F640D00F91B35 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD4C3521E9F640D00F91B35 /* FavoriteTableViewCell.xib */; };
+		1AF68E741EA06B19009F1F4D /* ContentTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF68E731EA06B19009F1F4D /* ContentTableHeaderView.xib */; };
+		1AF68E761EA074A5009F1F4D /* ContentTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AF68E751EA074A5009F1F4D /* ContentTableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		1A59F7F81E9B77CE000CE015 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		1AD4C3511E9F640D00F91B35 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		1AD4C3521E9F640D00F91B35 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
+		1AF68E731EA06B19009F1F4D /* ContentTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentTableHeaderView.xib; sourceTree = "<group>"; };
+		1AF68E751EA074A5009F1F4D /* ContentTableHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentTableHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,8 @@
 				1A59F7F01E9B5919000CE015 /* FavoriteTableViewController.swift */,
 				1A59F7F21E9B592A000CE015 /* AlarmTableViewController.swift */,
 				1A59F7F41E9B5936000CE015 /* ConfigTableViewController.swift */,
+				1A4BFCF21E9F72E600B78DF2 /* ContentTableViewController.swift */,
+				1A59F7F81E9B77CE000CE015 /* WebViewController.swift */,
 				1A3DA5A31E94DA6600EF29C5 /* Main.storyboard */,
 				1A59F7D81E9B26F0000CE015 /* Home.storyboard */,
 				1A59F7E31E9B4B3A000CE015 /* Favorite.storyboard */,
@@ -100,8 +106,8 @@
 				1A59F7EB1E9B4E40000CE015 /* HomeCollectionViewCell.xib */,
 				1AD4C3511E9F640D00F91B35 /* FavoriteTableViewCell.swift */,
 				1AD4C3521E9F640D00F91B35 /* FavoriteTableViewCell.xib */,
-				1A59F7F81E9B77CE000CE015 /* WebViewController.swift */,
-				1A4BFCF21E9F72E600B78DF2 /* ContentTableViewController.swift */,
+				1AF68E751EA074A5009F1F4D /* ContentTableHeaderView.swift */,
+				1AF68E731EA06B19009F1F4D /* ContentTableHeaderView.xib */,
 			);
 			path = ReVBX;
 			sourceTree = "<group>";
@@ -138,6 +144,7 @@
 				TargetAttributes = {
 					1A3DA5991E94DA6600EF29C5 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = C2AGCLBW3A;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -174,6 +181,7 @@
 				1A3DA5A71E94DA6600EF29C5 /* Assets.xcassets in Resources */,
 				1AD4C3541E9F640D00F91B35 /* FavoriteTableViewCell.xib in Resources */,
 				1A59F7E11E9B4B3A000CE015 /* Favorite.storyboard in Resources */,
+				1AF68E741EA06B19009F1F4D /* ContentTableHeaderView.xib in Resources */,
 				1A3DA5A51E94DA6600EF29C5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -185,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1AF68E761EA074A5009F1F4D /* ContentTableHeaderView.swift in Sources */,
 				1A59F7EF1E9B58FB000CE015 /* HomeCollectionViewController.swift in Sources */,
 				1AD4C3531E9F640D00F91B35 /* FavoriteTableViewCell.swift in Sources */,
 				1A4BFCF31E9F72E600B78DF2 /* ContentTableViewController.swift in Sources */,
@@ -346,6 +355,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = C2AGCLBW3A;
 				INFOPLIST_FILE = ReVBX/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -359,6 +370,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = C2AGCLBW3A;
 				INFOPLIST_FILE = ReVBX/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
