@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContentTableViewController: UITableViewController {
+class ContentTableViewController: UITableViewController, ContentTableHeaderViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,7 +44,7 @@ class ContentTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 //        let header = UIView(frame: CGRect(x: 0.0, y: 0.0, width: tableView.bounds.size.width, height: 200.0))
 //        header.backgroundColor = UIColor.black
-        let header = ContentTableHeaderView(frame: CGRect.zero, rootViewController: self)
+        let header = ContentTableHeaderView(frame: CGRect.zero, delegate: self)
         return header
     }
 
@@ -101,5 +101,27 @@ class ContentTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    
+    func willShowCannotUseAlert() {
+        let alert = UIAlertController(title: nil, message: "このデバイスでは本機能の利用はできません", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func willShowAccessPermissionAlert() {
+        let alert = UIAlertController(title: nil, message: "このアプリではカメラ機能を使用します。アクセスを許可してください。", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "設定", style: .default, handler: {action in
+            if let url = URL(string: "App-Prefs:root=Privacy") {
+                UIApplication.shared.openURL(url);
+            }
+        }))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    func willPushCameraViewController() {
+        let picker = UIImagePickerController()
+        picker.sourceType = .camera
+        self.present(picker, animated: true, completion: nil)
+    }
 }
