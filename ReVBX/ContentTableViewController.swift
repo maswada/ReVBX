@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContentTableViewController: UITableViewController, ContentTableHeaderViewDelegate {
+class ContentTableViewController: UITableViewController, ContentTableHeaderViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -122,6 +122,18 @@ class ContentTableViewController: UITableViewController, ContentTableHeaderViewD
     func willPushCameraViewController() {
         let picker = UIImagePickerController()
         picker.sourceType = .camera
+        picker.delegate = self
         self.present(picker, animated: true, completion: nil)
+    }
+    
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        NSLog("\(info)")
+        picker.dismiss(animated: false, completion: {
+            let storyboard = UIStoryboard(name: "Edit", bundle: Bundle.main)
+            let viewController = storyboard.instantiateViewController(withIdentifier: "kEditImageViewController") as! EditImageViewController
+            viewController.image = info[UIImagePickerControllerOriginalImage] as? UIImage
+            self.present(viewController, animated: true, completion: nil)
+        })
     }
 }
