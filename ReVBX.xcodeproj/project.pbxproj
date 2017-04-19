@@ -24,6 +24,9 @@
 		1A59F7F51E9B5936000CE015 /* ConfigTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A59F7F41E9B5936000CE015 /* ConfigTableViewController.swift */; };
 		1A59F7F71E9B6319000CE015 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A59F7F61E9B6319000CE015 /* Images.xcassets */; };
 		1A59F7F91E9B77CE000CE015 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A59F7F81E9B77CE000CE015 /* WebViewController.swift */; };
+		1A94E5791EA5DD10004F1EFD /* EditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94E5781EA5DD10004F1EFD /* EditImageViewController.swift */; };
+		1A94E57C1EA5E3C4004F1EFD /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A94E57E1EA5E3C4004F1EFD /* Edit.storyboard */; };
+		1A94E5801EA5F56B004F1EFD /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94E57F1EA5F56B004F1EFD /* FilterCollectionViewCell.swift */; };
 		1AD4C3531E9F640D00F91B35 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4C3511E9F640D00F91B35 /* FavoriteTableViewCell.swift */; };
 		1AD4C3541E9F640D00F91B35 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD4C3521E9F640D00F91B35 /* FavoriteTableViewCell.xib */; };
 		1AF68E741EA06B19009F1F4D /* ContentTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF68E731EA06B19009F1F4D /* ContentTableHeaderView.xib */; };
@@ -50,6 +53,9 @@
 		1A59F7F41E9B5936000CE015 /* ConfigTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigTableViewController.swift; sourceTree = "<group>"; };
 		1A59F7F61E9B6319000CE015 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		1A59F7F81E9B77CE000CE015 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		1A94E5781EA5DD10004F1EFD /* EditImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditImageViewController.swift; sourceTree = "<group>"; };
+		1A94E57D1EA5E3C4004F1EFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Edit.storyboard; sourceTree = "<group>"; };
+		1A94E57F1EA5F56B004F1EFD /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
 		1AD4C3511E9F640D00F91B35 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		1AD4C3521E9F640D00F91B35 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		1AF68E731EA06B19009F1F4D /* ContentTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentTableHeaderView.xib; sourceTree = "<group>"; };
@@ -99,6 +105,9 @@
 				1A59F7E61E9B4B41000CE015 /* Alarm.storyboard */,
 				1A59F7E91E9B4B45000CE015 /* Config.storyboard */,
 				1A3DA5A81E94DA6600EF29C5 /* LaunchScreen.storyboard */,
+				1A94E57E1EA5E3C4004F1EFD /* Edit.storyboard */,
+				1A94E5781EA5DD10004F1EFD /* EditImageViewController.swift */,
+				1A94E57F1EA5F56B004F1EFD /* FilterCollectionViewCell.swift */,
 				1A3DA5A61E94DA6600EF29C5 /* Assets.xcassets */,
 				1A59F7F61E9B6319000CE015 /* Images.xcassets */,
 				1A3DA5AB1E94DA6600EF29C5 /* Info.plist */,
@@ -176,6 +185,7 @@
 				1A59F7E41E9B4B41000CE015 /* Alarm.storyboard in Resources */,
 				1A3DA5AA1E94DA6600EF29C5 /* LaunchScreen.storyboard in Resources */,
 				1A59F7DA1E9B26F0000CE015 /* Home.storyboard in Resources */,
+				1A94E57C1EA5E3C4004F1EFD /* Edit.storyboard in Resources */,
 				1A59F7ED1E9B4E40000CE015 /* HomeCollectionViewCell.xib in Resources */,
 				1A59F7E71E9B4B45000CE015 /* Config.storyboard in Resources */,
 				1A3DA5A71E94DA6600EF29C5 /* Assets.xcassets in Resources */,
@@ -201,7 +211,9 @@
 				1A59F7F11E9B5919000CE015 /* FavoriteTableViewController.swift in Sources */,
 				1A59F7F51E9B5936000CE015 /* ConfigTableViewController.swift in Sources */,
 				1A59F7F91E9B77CE000CE015 /* WebViewController.swift in Sources */,
+				1A94E5791EA5DD10004F1EFD /* EditImageViewController.swift in Sources */,
 				1A3DA59E1E94DA6600EF29C5 /* AppDelegate.swift in Sources */,
+				1A94E5801EA5F56B004F1EFD /* FilterCollectionViewCell.swift in Sources */,
 				1A59F7EC1E9B4E40000CE015 /* HomeCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,6 +267,14 @@
 				1A59F7E81E9B4B45000CE015 /* Base */,
 			);
 			name = Config.storyboard;
+			sourceTree = "<group>";
+		};
+		1A94E57E1EA5E3C4004F1EFD /* Edit.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1A94E57D1EA5E3C4004F1EFD /* Base */,
+			);
+			name = Edit.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
