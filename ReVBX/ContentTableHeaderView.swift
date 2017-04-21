@@ -12,7 +12,6 @@ import AVFoundation
 class ContentTableHeaderView: UIView {
 
     var nibName: String = "ContentTableHeaderView"
-//    var viewController: UIViewController!
     var delegate: ContentTableHeaderViewDelegate!
     
     override init(frame: CGRect) {
@@ -25,10 +24,8 @@ class ContentTableHeaderView: UIView {
         setup()
     }
     
-//    convenience init(frame: CGRect, rootViewController: UIViewController) {
     convenience init(frame: CGRect, delegate: ContentTableHeaderViewDelegate) {
         self.init(frame: frame)
-//        self.viewController = rootViewController
         self.delegate = delegate
     }
     
@@ -41,8 +38,6 @@ class ContentTableHeaderView: UIView {
     }
     
     @IBAction func takePictureAction(_ sender: UIButton) {
-        NSLog("takePicture")
-        
         if self.availableCamera() {
             let status = self.authorizedStatus()
             switch status {
@@ -68,30 +63,14 @@ class ContentTableHeaderView: UIView {
     }
     
     private func showCameraViewController() {
-//        let picker = UIImagePickerController()
-//        picker.sourceType = .camera
-//        self.viewController.present(picker, animated: true, completion: nil)
-        
         self.delegate.willPushCameraViewController()
     }
     
     private func showPermissionAlert() {
-//        let alert = UIAlertController(title: nil, message: "このアプリではカメラ機能を使用します。アクセスを許可してください。", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "設定", style: .default, handler: {action in
-//            if let url = URL(string: "App-Prefs:root=Privacy") {
-//                UIApplication.shared.openURL(url);
-//            }
-//        }))
-//        self.viewController.present(alert, animated: true, completion: nil)
-        
         self.delegate.willShowAccessPermissionAlert()
     }
     
     private func showNotUseAlert() {
-//        let alert = UIAlertController(title: nil, message: "このデバイスでは本機能の利用はできません", preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .default, handler:nil))
-//        self.viewController.present(alert, animated: true, completion: nil)
-        
         self.delegate.willShowCannotUseAlert()
     }
 
