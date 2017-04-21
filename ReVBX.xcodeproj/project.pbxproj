@@ -27,6 +27,7 @@
 		1A94E5791EA5DD10004F1EFD /* EditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94E5781EA5DD10004F1EFD /* EditImageViewController.swift */; };
 		1A94E57C1EA5E3C4004F1EFD /* Edit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A94E57E1EA5E3C4004F1EFD /* Edit.storyboard */; };
 		1A94E5801EA5F56B004F1EFD /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A94E57F1EA5F56B004F1EFD /* FilterCollectionViewCell.swift */; };
+		1ACD1ED71EA7322B002426CE /* CameraOverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1ACD1ED61EA7322B002426CE /* CameraOverlayView.xib */; };
 		1AD4C3531E9F640D00F91B35 /* FavoriteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD4C3511E9F640D00F91B35 /* FavoriteTableViewCell.swift */; };
 		1AD4C3541E9F640D00F91B35 /* FavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AD4C3521E9F640D00F91B35 /* FavoriteTableViewCell.xib */; };
 		1AF68E741EA06B19009F1F4D /* ContentTableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AF68E731EA06B19009F1F4D /* ContentTableHeaderView.xib */; };
@@ -56,6 +57,7 @@
 		1A94E5781EA5DD10004F1EFD /* EditImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditImageViewController.swift; sourceTree = "<group>"; };
 		1A94E57D1EA5E3C4004F1EFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Edit.storyboard; sourceTree = "<group>"; };
 		1A94E57F1EA5F56B004F1EFD /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		1ACD1ED61EA7322B002426CE /* CameraOverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CameraOverlayView.xib; sourceTree = "<group>"; };
 		1AD4C3511E9F640D00F91B35 /* FavoriteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTableViewCell.swift; sourceTree = "<group>"; };
 		1AD4C3521E9F640D00F91B35 /* FavoriteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		1AF68E731EA06B19009F1F4D /* ContentTableHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContentTableHeaderView.xib; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				1AD4C3521E9F640D00F91B35 /* FavoriteTableViewCell.xib */,
 				1AF68E751EA074A5009F1F4D /* ContentTableHeaderView.swift */,
 				1AF68E731EA06B19009F1F4D /* ContentTableHeaderView.xib */,
+				1ACD1ED61EA7322B002426CE /* CameraOverlayView.xib */,
 			);
 			path = ReVBX;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				1A59F7E41E9B4B41000CE015 /* Alarm.storyboard in Resources */,
 				1A3DA5AA1E94DA6600EF29C5 /* LaunchScreen.storyboard in Resources */,
 				1A59F7DA1E9B26F0000CE015 /* Home.storyboard in Resources */,
+				1ACD1ED71EA7322B002426CE /* CameraOverlayView.xib in Resources */,
 				1A94E57C1EA5E3C4004F1EFD /* Edit.storyboard in Resources */,
 				1A59F7ED1E9B4E40000CE015 /* HomeCollectionViewCell.xib in Resources */,
 				1A59F7E71E9B4B45000CE015 /* Config.storyboard in Resources */,
