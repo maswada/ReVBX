@@ -123,12 +123,18 @@ class ContentTableViewController: UITableViewController, ContentTableHeaderViewD
         let picker = UIImagePickerController()
         picker.sourceType = .camera
         picker.delegate = self
+        
+        let nib = UINib(nibName: "CameraOverlayView", bundle: nil)
+        let view = nib.instantiate(withOwner: self, options: nil).first! as! UIView
+        view.frame = picker.view.bounds
+        NSLog("\(picker.view.subviews)")
+        view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
+        picker.cameraOverlayView = view
         self.present(picker, animated: true, completion: nil)
     }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        NSLog("\(info)")
         picker.dismiss(animated: false, completion: {
             let storyboard = UIStoryboard(name: "Edit", bundle: Bundle.main)
             let viewController = storyboard.instantiateViewController(withIdentifier: "kEditImageViewController") as! EditImageViewController

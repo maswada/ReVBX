@@ -8,6 +8,23 @@
 
 import UIKit
 
+extension UIImageOrientation  {
+    func degrees() -> CGFloat {
+        switch self {
+        case .up:
+            return 0
+        case .down:
+            return CGFloat(M_PI)
+        case .left:
+            return CGFloat(M_PI_2)
+        case .right:
+            return CGFloat(-M_PI_2)
+        default:
+            return 0.0
+        }
+    }
+}
+
 class EditImageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
@@ -23,8 +40,20 @@ class EditImageViewController: UIViewController, UICollectionViewDataSource, UIC
         super.viewDidLoad()
 
         if let image = self.image {
-            self.imageView.image = image
-            self.ciimage = CIImage(image: image)
+            self.image = image
+            
+            let filterImage = self.rotatedImage(targetImage: UIImage(named: "overlay")!, toMatchImage: image)
+            let filterCiimage = CIImage(image: filterImage)
+            
+            let composeFilter = CIFilter(name: "CISourceAtopCompositing")
+            composeFilter?.setValue(filterCiimage, forKey: kCIInputImageKey)
+            composeFilter?.setValue(CIImage(image: image), forKey: kCIInputBackgroundImageKey)
+
+            self.ciimage = composeFilter?.outputImage
+            let context = CIContext(options: nil)
+            let imageRef = context.createCGImage(self.ciimage!, from: (self.ciimage?.extent)!)
+            let outputImage = UIImage(cgImage: imageRef!, scale: image.scale, orientation: image.imageOrientation)
+            self.imageView.image = outputImage
         }
         
         let filter0 = CIFilter(name: "CIVignette")
@@ -47,8 +76,51 @@ class EditImageViewController: UIViewController, UICollectionViewDataSource, UIC
         let filter5 = CIFilter(name: "CIPhotoEffectProcess")
         self.filters.append([nameKey: "Process", filterKey: filter5 as Any])
 
-        let filter6 = CIFilter(name: "CIToneCurve")
-        self.filters.append([nameKey: "Curve", filterKey: filter6 as Any])
+        let filter6 = CIFilter(name: "CISepiaTone")
+        self.filters.append([nameKey: "Sepia", filterKey: filter6 as Any])
+    }
+    
+    func rotatedImage(targetImage: UIImage, toMatchImage bgImage: UIImage) -> UIImage {
+        
+        let screenSize = UIScreen.main.bounds.size
+        NSLog("screen bounds  :\(UIScreen.main.bounds)")
+        NSLog("filter size    :\(targetImage.size)")
+        
+        
+        let bgImageSize = self.rotatedSize(originalImage: bgImage)
+        NSLog("bgImageSize    :\(bgImageSize)")
+        UIGraphicsBeginImageContext(bgImageSize)
+        
+        let bitmap: CGContext = UIGraphicsGetCurrentContext()!
+        bitmap.translateBy(x: bgImageSize.width / 2, y: bgImageSize.height / 2)
+        bitmap.rotate(by: self.image!.imageOrientation.degrees())
+        bitmap.scaleBy(x: 1.0, y: -1.0)
+        
+        // only full square image
+        let fixedfilterSize = CGSize(width: screenSize.width, height: screenSize.width)
+        NSLog("fixedfilterSize:\(fixedfilterSize)")
+
+        let ratio = bgImageSize.height/fixedfilterSize.height
+        NSLog("bgImgscale      :\(bgImage.scale)")
+        NSLog("ratio           :\(ratio)")
+        let origin = CGPoint(x: -fixedfilterSize.width*ratio/2, y: -fixedfilterSize.height*ratio/2)
+        
+        let rect = CGRect(origin: origin, size: CGSize(width: fixedfilterSize.width*ratio, height: fixedfilterSize.height*ratio))
+        NSLog("filterRect      :\(rect)")
+        bitmap.draw(targetImage.cgImage!, in: rect)
+        
+        let newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    func rotatedSize(originalImage: UIImage) -> CGSize {
+        switch originalImage.imageOrientation {
+        case .right, .left:
+            return CGSize(width: originalImage.size.height, height: originalImage.size.width)
+        default:
+            return originalImage.size
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +139,7 @@ class EditImageViewController: UIViewController, UICollectionViewDataSource, UIC
     }
     */
     @IBAction func closeButtonAction(_ sender: UIButton) {
+        UIImageWriteToSavedPhotosAlbum(self.imageView.image!, nil, nil, nil)
         self.dismiss(animated: true, completion: nil)
     }
 
@@ -78,7 +151,7 @@ class EditImageViewController: UIViewController, UICollectionViewDataSource, UIC
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let info = self.filters[indexPath.row]
         if let filter = info[filterKey] as? CIFilter {
-            filter.setValue(self.ciimage, forKey: "inputImage")
+            filter.setValue(self.ciimage, forKey: kCIInputImageKey)
         
             let context = CIContext(options: nil)
             let imageRef = context.createCGImage((filter.outputImage)!, from: (filter.outputImage?.extent)!)
